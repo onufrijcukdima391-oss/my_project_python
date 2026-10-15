@@ -1,0 +1,120 @@
+HTML
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hit Hub — Умови в Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4ff;
+            color: #222;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        header, section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #ccd2e0;
+        }
+        h1, h2 { color: #3157c8; }
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        button {
+            background: #3157c8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        pre {
+            background: #edf0f7;
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🚀 Hit Hub</h1>
+        <p>Інтерактивний урок: перевірка умов у Python</p>
+    </header>
+
+    <section>
+        <h2>📘 Теорія</h2>
+        <p><b>if</b> — перевіряє умову.</p>
+        <p><b>elif</b> — перевіряє іншу умову, якщо попередня хибна.</p>
+        <p><b>else</b> — виконується, якщо жодна попередня умова не підійшла.</p>
+        <pre>age = 15
+
+if age >= 18:
+    print("Повнолітній")
+elif age >= 14:
+    print("Підліток")
+else:
+    print("Дитина")</pre>
+    </section>
+
+    <section>
+        <h2>💻 Приклад</h2>
+        <p>Введи свій вік і перевір результат:</p>
+        <input type="number" id="age" placeholder="Введи вік" min="0">
+        <br>
+        <button onclick="checkAge()">Перевірити</button>
+        <p id="result"></p>
+    </section>
+
+    <section>
+        <h2>🎯 Практичне завдання</h2>
+        <p>Введи число. Програма визначить, чи воно додатне, від’ємне або дорівнює нулю.</p>
+        <input type="number" id="number" placeholder="Введи число">
+        <br>
+        <button onclick="checkNumber()">Перевірити число</button>
+        <p id="numberResult"></p>
+    </section>
+
+    <script>
+        function checkAge() {
+            const age = document.getElementById("age").value;
+            const result = document.getElementById("result");
+
+            if (age === "" || Number(age) < 0) {
+                result.textContent = "Введи коректний вік.";
+            } else if (Number(age) >= 18) {
+                result.textContent = "Ти повнолітній!";
+            } else if (Number(age) >= 14) {
+                result.textContent = "Ти підліток!";
+            } else {
+                result.textContent = "Ти дитина!";
+            }
+        }
+
+        function checkNumber() {
+            const value = document.getElementById("number").value;
+            const result = document.getElementById("numberResult");
+
+            if (value === "") {
+                result.textContent = "Спочатку введи число.";
+            } else if (Number(value) > 0) {
+                result.textContent = "Число додатне.";
+            } else if (Number(value) < 0) {
+                result.textContent = "Число від’ємне.";
+            } else {
+                result.textContent = "Число дорівнює нулю.";
+            }
+        }
+    </script>
+</body>
+</html>
